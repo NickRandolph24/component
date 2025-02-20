@@ -118,7 +118,7 @@ Below is further rationale/explanation for the rubric items above:
 data set interface because of the different calls I could use within it. Music Playlists
 have a plethora of different functions that must be implemented/designed and in using it,
 I have a great amount to work with. I also use a msuic playlist multiple times a day and would
-love to see how they are truly and actually implemented.-->
+love to see how they are truly and create one-->
 
 > Once you've argued your choice of design, make a branch in your new repo called
 > something like `proof-of-concept`. There are many ways to do this, but my
@@ -214,7 +214,6 @@ to look over your changes. Otherwise, you defer needed changes to later pull
 requests, which could sacrifice the overall quality of your work or result in
 major rework.
 
-<!-- TODO: paste the URL to Carmen then delete this comment -->
 
 ### Peer Review
 
