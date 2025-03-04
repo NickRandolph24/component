@@ -1,0 +1,9 @@
+ MusicPlaylistApp (Root)
+ ├──  Playlist
+ │   ├──  SongList
+ │   ├──  Controls (Play/Pause, Shuffle, Repeat)
+ │   ├──  SearchBar
+ ├── 🎚 Player (Now Playing)
+ │   ├──  SongInfo
+ │   ├──  PlaybackControls (Play, Pause, Next, Previous)
+ │   ├──  ProgressBar
