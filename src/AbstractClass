@@ -1,6 +1,5 @@
 /**
  * This Project creates secondary methods from the main methods.
- * Already created by the user
  */
 public abstract class SecondaryAbstractMusicPlaylist implements Enhanced {
     /**
