@@ -1,0 +1,49 @@
+/**
+ * This Project creates secondary methods from the main methods.
+ * Already created by the user
+ */
+public abstract class SecondaryAbstractMusicPlaylist implements Enhanced {
+    /**
+     * Plays the first song in the playlist.
+     * @requires playlist is not empty
+     * @ensures the first song is played
+     */
+    public void playFirst() {
+        if (size() > 0) {
+            while (!getCurrentSong().equals(getSongAtIndex(0))) {
+                playPrevious();
+            }
+        }
+    }
+
+    /**
+     * Plays the last song in the playlist.
+     * @requires playlist is not empty
+     * @ensures the last song is played
+     */
+    public void playLast() {
+        if (size() > 0) {
+            while (!getCurrentSong().equals(getSongAtIndex(size() - 1))) {
+                playNext();
+            }
+        }
+    }
+
+    /**
+     * Repeats the current song.
+     * @ensures the current song starts over
+     */
+    public void repeatCurrent() {
+        playPrevious();
+        playNext();
+    }
+
+    /**
+     * Gets a song at a specific index in the playlist.
+     * @param index the index of the song
+     * @return the song at the given index
+     * @requires index is within bounds (0 <= index < size())
+     */
+    public abstract String getSongAtIndex(int index);
+}
+
