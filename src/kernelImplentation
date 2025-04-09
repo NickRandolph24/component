@@ -1,0 +1,96 @@
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.NoSuchElementException;
+
+/**
+ * Implementation of a music playlist that supports adding, removing,
+ * shuffling, and navigating through songs.
+ */
+public class kernelImplementation implements Kernel {
+
+    private final LinkedList<String> songs;
+    private int currentIndex;
+
+    /**
+     * Constructor initializes an empty playlist.
+     */
+    public Playlist() {
+        this.songs = new ArrayList<>();
+        this.currentIndex = -1; 
+    }
+
+    @Override
+    public void addSong(String song) {
+        if (song == null || song.isEmpty()) {
+            throw new IllegalArgumentException("Song cannot be null or empty");
+        }
+        songs.add(song);
+        if (currentIndex == -1) {
+            currentIndex = 0;
+        }
+    }
+
+    @Override
+    public void removeSong(String song) {
+        if (!songs.contains(song)) {
+            throw new IllegalArgumentException("Song not in playlist");
+        }
+
+        int removedIndex = songs.indexOf(song);
+        songs.remove(removedIndex);
+
+        if (songs.isEmpty()) {
+            currentIndex = -1;
+        } else if (removedIndex <= currentIndex) {
+            currentIndex = Math.max(0, currentIndex - 1);
+        }
+    }
+
+    @Override
+    public void clear() {
+        songs.clear();
+        currentIndex = -1;
+    }
+
+    @Override
+    public boolean contains(String song) {
+        return songs.contains(song);
+    }
+
+    @Override
+    public void playNext() {
+        if (songs.isEmpty()) {
+            throw new IllegalStateException("Playlist is empty");
+        }
+        currentIndex = (currentIndex + 1) % songs.size();
+    }
+
+    @Override
+    public void playPrevious() {
+        if (songs.isEmpty()) {
+            throw new IllegalStateException("Playlist is empty");
+        }
+        currentIndex = (currentIndex - 1 + songs.size()) % songs.size();
+    }
+
+    @Override
+    public int size() {
+        return songs.size();
+    }
+
+    @Override
+    public String getCurrentSong() {
+        if (songs.isEmpty() || currentIndex == -1) {
+            throw new NoSuchElementException("No current song to play");
+        }
+        return songs.get(currentIndex);
+    }
+
+    @Override
+    public void shuffle() {
+        if (songs.isEmpty()) return;
+        String currentSong = getCurrentSong();
+        Collections.shuffle(songs);
+        currentIndex = songs.indexOf(currentSong); 
+    }
+}
