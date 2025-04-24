@@ -1,0 +1,44 @@
+/**
+ * Enhanced interface for Playlist.
+ * Extends PlaylistKernel to provide additional convenience methods.
+ */
+public interface Enhanced {
+
+    /**
+     * Plays the next song in the playlist.
+     *
+     * @requires playlist is not empty
+     * @ensures current song advances to the next song
+     */
+    void playNext();
+
+    /**
+     * Plays the previous song in the playlist.
+     *
+     * @requires playlist has at least one previous song
+     * @ensures current song moves back to the previous song
+     */
+    void playPrevious();
+
+    /**
+     * Returns the total number of songs in the playlist.
+     *
+     * @return the number of songs
+     */
+    int size();
+
+    /**
+     * Gets the current song being played.
+     *
+     * @return the current song
+     * @requires playlist is not empty
+     */
+    String getCurrentSong();
+
+    /**
+     * Shuffles the order of songs in the playlist.
+     *
+     * @ensures songs appear in a random order
+     */
+    void shuffle();
+}

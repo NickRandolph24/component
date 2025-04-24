@@ -1,0 +1,39 @@
+/**
+ * Kernel interface for Playlist.
+ * Defines the essential operations for managing a playlist.
+ */
+public interface Kernel {
+
+
+    /**
+     * Adds a song to the playlist.
+     *
+     * @param song the song to add
+     * @ensures this contains song
+     */
+    void addSong(String song);
+
+    /**
+     * Removes a song from the playlist.
+     *
+     * @param song the song to remove
+     * @requires this.contains(song)
+     * @ensures this does not contain song
+     */
+    void removeSong(String song);
+
+    /**
+     * Clears all songs from the playlist.
+     *
+     * @ensures this is empty
+     */
+    void clear();
+
+    /**
+     * Checks if the playlist contains a specific song.
+     *
+     * @param song the song to check
+     * @return true if the song is in the playlist, false otherwise
+     */
+    boolean contains(String song);
+}
